@@ -288,7 +288,7 @@ func (c *Controller) syncHandler(secret *corev1.Secret) error {
 		return err
 	}
 
-	keyResp, _, err := c.gitlabClient.DeployKeys.AddDeployKey(p.ID, &gitlab.AddDeployKeyOptions{Title: gitlab.String("Flux deployment key"), Key: gitlab.String(string(ssh.MarshalAuthorizedKey(sshKey)))})
+	keyResp, _, err := c.gitlabClient.DeployKeys.AddDeployKey(p.ID, &gitlab.AddDeployKeyOptions{Title: gitlab.String("Flux deployment key"), Key: gitlab.String(string(ssh.MarshalAuthorizedKey(sshKey))), CanPush: gitlab.Bool(true)})
 	if err != nil {
 		return err
 	}
