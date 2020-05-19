@@ -18,6 +18,7 @@ package main
 
 import (
 	"flag"
+	"os"
 	"time"
 
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -75,4 +76,8 @@ func init() {
 	flag.StringVar(&masterURL, "master", "", "The address of the Kubernetes API server. Overrides any value in kubeconfig. Only required if out-of-cluster.")
 	flag.StringVar(&gitlabHostname, "gitlab-hostname", "gitlab.com", "The gitlab API token to create and remove deployment keys for the repo")
 	flag.StringVar(&gitlabToken, "gitlab-token", "", "The gitlab API token to create and remove deployment keys for the repo")
+
+	if len(gitlabToken) = 0 {
+	    gitlanToken = os.Getenv("GITLAB_TOKEN")
+	}
 }
