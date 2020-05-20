@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: flux-gitlab-controller
+  name: flux-gitlab-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flux-gitlab-controller
+  template:
+    metadata:
+      labels:
+        app: flux-gitlab-controller
+    spec:
+      containers:
+      - name: flux-gitlab-controller
+        image: <your_image_here>
+        resources:
+          limits:
+            cpu: 100m
+            memory: 30Mi
+          requests:
+            cpu: 100m
+            memory: 20Mi
+        env:
+          - name: GITLAB_TOKEN
+            value: <your_token>
+      restartPolicy: Always
