@@ -25,6 +25,9 @@ kubectl create -f artifacts/examples/flux_secret.yaml
 kubectl get secret -o yaml flux-git-deploy
 ```
 
+You can also set the `gitlab-token` through the GITLAB_TOKEN env variable if you need an extra
+layer of security on provisioning secrets to the controller
+ 
 ## What happens if someone removes the deployment key from the application repo?
 
 In tha case, flux won't re-create the key as we're not constantly checking for deleted keys to avoid

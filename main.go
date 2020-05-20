@@ -77,7 +77,7 @@ func init() {
 	flag.StringVar(&gitlabHostname, "gitlab-hostname", "gitlab.com", "The gitlab API token to create and remove deployment keys for the repo")
 	flag.StringVar(&gitlabToken, "gitlab-token", "", "The gitlab API token to create and remove deployment keys for the repo")
 
-	if len(gitlabToken) = 0 {
-	    gitlanToken = os.Getenv("GITLAB_TOKEN")
+	if len(gitlabToken) == 0 {
+		gitlabToken = os.Getenv("GITLAB_TOKEN")
 	}
 }
