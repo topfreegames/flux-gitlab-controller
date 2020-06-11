@@ -30,7 +30,7 @@ layer of security on provisioning secrets to the controller
  
 ## What happens if someone removes the deployment key from the application repo?
 
-In tha case, flux won't re-create the key as we're not constantly checking for deleted keys to avoid
+In that case, this controller won't re-create the key as we're not constantly checking for deleted keys to avoid
 putting too much pressure to the gitlab api. 
 
 In order for flux to re-create the key, the fluxcd.io/deployKeyId annotation needs to be removed
