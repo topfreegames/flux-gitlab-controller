@@ -1,4 +1,4 @@
-# sample-controller
+# Flux gitlab controller
 
 This repository implements a simple controller for watching Secrets created by gitlab and calling the API to update the deploy keys the specified repo
 
