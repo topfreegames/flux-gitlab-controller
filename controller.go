@@ -255,7 +255,7 @@ func (c *Controller) syncHandler(secret *corev1.Secret) error {
 		return err
 	}
 
-	if _, ok := secret.Annotations[gitUrlLabelName]; ok {
+	if _, found := secret.Annotations[gitUrlLabelName]; !found {
 		klog.V(4).Infof("Secret %s is not a flux secret", secret.GetName())
 		return nil
 	}
