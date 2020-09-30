@@ -255,6 +255,11 @@ func (c *Controller) syncHandler(secret *corev1.Secret) error {
 		return err
 	}
 
+	if _, ok := secret.Annotations[gitUrlLabelName]; ok {
+		klog.V(4).Infof("Secret %s is not a flux secret", secret.GetName())
+		return nil
+	}
+
 	// We could make the controller check if the key exist in the gitlab API
 	// and re-create it if missing but I'm a bit concerned about the amount of
 	// pressure that it could put into the API
